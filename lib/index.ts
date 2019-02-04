@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { get_package, exec, environment } from "./utils";
 import { Argv } from "./argv";
 
