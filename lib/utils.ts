@@ -25,6 +25,9 @@ function _exec(cmd: string, bin_path: string) {
     const args = cmd.split(' ')
     let command = join(bin_path, args.shift() as string)
     const ps = spawn(command, args)
+    ps.stdout.pipe(process.stdout)
+    ps.stderr.pipe(process.stderr)
+    ps.stdin.pipe(process.stdin)
     ps.on('close', function(code: number, signal: string) {
       resolve(code == 0)
     })
