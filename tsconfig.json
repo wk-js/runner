@@ -5,5 +5,10 @@
     "module": "commonjs",
     "outDir": "./js",
     "strict": true
-  }
+  },
+
+  "include": [
+    "./node_modules/@types",
+    "./node_modules/lol/index.d.ts"
+  ]
 }

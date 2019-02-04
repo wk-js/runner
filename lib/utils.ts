@@ -1,6 +1,7 @@
 import { statSync, readFileSync } from "fs";
 import { spawn } from "child_process";
 import { join, extname } from "path";
+import { merge } from "lol/utils/object";
 
 interface IRunnerPackage {
   scripts: Record<string, string>
@@ -36,6 +37,7 @@ function _exec(cmd: string, bin_path: string) {
 
 export async function exec(cmd: string, bin_paths: string[]) {
   let i = 0
+
   while (i < bin_paths.length) {
     const success = await _exec(cmd, bin_paths[i])
     if (success) break;
@@ -82,7 +84,7 @@ export function get_package() {
     }
   }
 
-  if (pkg) defaults = Object.assign(defaults, pkg)
+  if (pkg) defaults = merge({}, defaults, pkg)
 
   return defaults
 }

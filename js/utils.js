@@ -25,17 +25,23 @@ function _exec(cmd, bin_path) {
     return new Promise((resolve, reject) => {
         const args = cmd.split(' ');
         let command = path_1.join(bin_path, args.shift());
+        console.log(command, args);
         const ps = child_process_1.spawn(command, args);
+        ps.stdout.pipe(process.stdout);
+        ps.stderr.pipe(process.stderr);
+        ps.stdin.pipe(process.stdin);
         ps.on('close', function (code, signal) {
             resolve(code == 0);
         });
     });
 }
-function exec(cmd, bin_paths = []) {
+function exec(cmd, bin_paths) {
     return __awaiter(this, void 0, void 0, function* () {
         let i = 0;
+        console.log(bin_paths);
         while (i < bin_paths.length) {
             const success = yield _exec(cmd, bin_paths[i]);
+            console.log(success);
             if (success)
                 break;
             i++;

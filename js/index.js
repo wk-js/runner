@@ -25,8 +25,9 @@ class Main {
             console.log(`[!!] More information with --help flag`);
             return;
         }
+        console.log(pkg.runner);
         utils_1.environment(pkg.runner.environments);
-        utils_1.exec(command);
+        utils_1.exec(command, pkg.runner.bins);
     }
 }
 Main.main();

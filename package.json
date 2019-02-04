@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "^10.12.21",
+    "lol": "github:makemepulse/lol.js",
     "typescript": "^3.3.1"
   }
 }
