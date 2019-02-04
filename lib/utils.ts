@@ -34,7 +34,7 @@ function _exec(cmd: string, bin_path: string) {
   })
 }
 
-export async function exec(cmd: string, bin_paths: string[] = []) {
+export async function exec(cmd: string, bin_paths: string[]) {
   let i = 0
   while (i < bin_paths.length) {
     const success = await _exec(cmd, bin_paths[i])

@@ -33,7 +33,7 @@ class Main {
     }
 
     environment(pkg.runner.environments)
-    exec(command)
+    exec(command, pkg.runner.bins)
 
   }
 }
