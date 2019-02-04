@@ -13,7 +13,7 @@ class Main {
     const scripts = Object.assign({}, pkg.runner.scripts, pkg.scripts)
 
     if (argv.has('--help') || argv.has('-h')) {
-      console.log('--list, --tasks, -T           List available tasks');
+      console.log('--list, --tasks, -T       List available tasks');
       console.log('--help, -h                Display help');
       return;
     }
@@ -28,6 +28,7 @@ class Main {
 
     if (command == null) {
       console.log(`[!!] Command "${command_name}" does not exist`);
+      console.log(`[!!] More information with --help flag`);
       return;
     }
 
